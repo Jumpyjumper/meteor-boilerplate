@@ -3,7 +3,8 @@
   "private": true,
   "scripts": {
     "start": "meteor run",
-    "test": "cross-env TEST_BROWSER_DRIVER=nightmare meteor test --once --driver-package dispatch:mocha",
+    "test": "meteor test --once --driver-package dispatch:mocha",
+    "test-local": "cross-env TEST_BROWSER_DRIVER=nightmare meteor test --once --driver-package dispatch:mocha",
     "test-live": "meteor test --driver-package=cultofcoders:mocha",
     "coverage:unit": "cross-env NODE_ENV=COVERAGE TEST_BROWSER_DRIVER=puppeteer COVERAGE=1 COVERAGE_OUT_HTML=1 COVERAGE_APP_FOLDER=%cd%\\ meteor test --once --driver-package meteortesting:mocha --raw-logs",
     "coverage:watch": "cross-env NODE_ENV=COVERAGE COVERAGE=1 COVERAGE_VERBOSE=1 COVERAGE_APP_FOLDER=%cd%\\ TEST_WATCH=1 meteor test --driver-package cultofcoders:mocha --raw-logs",
@@ -18,7 +19,8 @@
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-mounter": "^1.2.0",
-    "react-transition-group": "^2.5.0"
+    "react-transition-group": "^2.5.0",
+    "spacejam": "^1.6.1"
   },
   "devDependencies": {
     "babel-plugin-istanbul": "^5.1.0",
