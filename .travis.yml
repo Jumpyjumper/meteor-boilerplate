@@ -9,7 +9,7 @@ before_script:
   - export PATH=$HOME/.meteor:$PATH
   - npm install -g spacejam
   - meteor npm i --save-dev coveralls
-  - cat .coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js || true 
+  - meteor npm i --save-dev codecov.io
 cache:
   directories:
     - node_modules
