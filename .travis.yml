@@ -8,6 +8,8 @@ before_script:
   # We can then use the faster container infrastructure - http://docs.travis-ci.com/user/workers/container-based-infrastructure/
   - export PATH=$HOME/.meteor:$PATH
   - npm install -g spacejam
+  - meteor npm i --save-dev coveralls
+  - cat .coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js || true 
 cache:
   directories:
     - node_modules
