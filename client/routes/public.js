@@ -2,6 +2,7 @@ import { FlowRouter } from 'meteor/ostrio:flow-router-extra';
 import { mount } from 'react-mounter';
 import { MainLayout } from '/imports/ui/layouts/MainLayout.jsx';
 import Homepage from '/imports/ui/pages/Homepage.jsx';
+import Styleguide from '/imports/ui/pages/Styleguide.jsx';
 import React from 'react';
 
 FlowRouter.route('/', {
@@ -14,13 +15,12 @@ FlowRouter.route('/', {
   },
 });
 
-FlowRouter.route('/test', {
-  name: 'test',
-  title: 'Test',
-  parent: 'homepage',
+FlowRouter.route('/styleguide', {
+  name: 'styleguide',
+  title: 'Styleguide',
   action() {
     mount(MainLayout, {
-      content: () => <Homepage/>,
+      content: () => <Styleguide/>,
     });
   },
 });
