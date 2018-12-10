@@ -1,0 +1,14 @@
+{
+    "files": {
+      "included": [
+        "client/**/*.{js, jsx}",
+        "imports/**/*.{js, jsx}",
+        "server/**/*.{js, jsx}"
+      ],
+      "excluded": [
+        ".meteor/",
+        "node-modules/",
+        "styles/"
+      ]
+    }
+  }
