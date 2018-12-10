@@ -1,16 +1,23 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export default class Caption extends React.Component {
+class Caption extends React.Component {
+    constructor(props) {
+        super(props);
+    }
 
-	constructor(props) {
-		super(props);
-	}
-   
-	render() {
+    render() {
         return (
             <caption>
                 {this.props.children}
             </caption>
-        )
-	}
+        );
+    }
 }
+
+Caption.propTypes = {
+    children: PropTypes.node
+};
+
+
+export default Caption;

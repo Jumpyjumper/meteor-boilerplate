@@ -1,40 +1,48 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export default class Alert extends React.Component {
+class Alert extends React.Component {
+    constructor(props) {
+        super(props);
 
-	constructor(props) {
-		super(props);
+        this.state = {};
 
-		this.state = {};
+        if (this.props.dismiss) {
+            this.state.dismiss = false;
+            this.handleDismiss = this.handleDismiss.bind(this);
+        }
+    }
 
-		if(this.props.dismiss){
-			this.state.dismiss = false;
-			this.handleDismiss = this.handleDismiss.bind(this);
-		}
-	}
-	
-	handleDismiss(e){
-		e.preventDefault();
-		this.setState({
-			dismiss: true
-		});
-	}
-   
-	render() {
-        if((this.props.dismiss && !this.state.dismiss) || !this.props.dismiss) {
+    handleDismiss(e) {
+        e.preventDefault();
+        this.setState({
+            dismiss: true
+        });
+    }
+
+    render() {
+        if ((this.props.dismiss && !this.state.dismiss) || !this.props.dismiss) {
             return (
-                <div className={"alert alert-" + this.props.type} role="alert">
+                <div className={`alert alert-${this.props.type}`} role="alert">
                     {this.props.children}
                     {
                         (this.props.dismiss) ?
                             <button type="button" className="close" aria-label="Close" onClick={this.handleDismiss}>
                                 <span aria-hidden="true">&times;</span>
                             </button>
-                        :   null
+                            : null
                     }
                 </div>
-            )
+            );
         }
-        return null
-	}
+        return null;
+    }
 }
+
+Alert.propTypes = {
+    dismiss: PropTypes.bool,
+    type: PropTypes.string,
+    children: PropTypes.node
+};
+
+export default Alert;

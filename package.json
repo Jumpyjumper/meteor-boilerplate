@@ -6,6 +6,12 @@
     "test": "cross-env NODE_ENV=COVERAGE TEST_BROWSER_DRIVER=puppeteer COVERAGE=1 COVERAGE_OUT_HTML=1 COVERAGE_APP_FOLDER=$(pwd)/ meteor test --once --driver-package meteortesting:mocha --raw-logs && cat .coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js || true && cat .coverage/lcov.info | ./node_modules/codecov.io/bin/codecov.io.js || true",
     "test-local": "cross-env TEST_BROWSER_DRIVER=nightmare meteor test --once --driver-package dispatch:mocha",
     "test-live": "meteor test --driver-package=cultofcoders:mocha",
+    "lint": "npm run-script lint:javascript && npm run-script lint:markdown && npm run-script lint:style",
+    "lint:javascript": "eslint . --ext .jsx --ext .js",
+    "lint:javascript:fix": "eslint . --fix --ext .jsx --ext .js",
+    "lint:markdown": "markdownlint \"*.md\"",
+    "lint:style": "stylelint \"styles/**/*.scss\"",
+    "pretest": "npm run-script lint",
     "coverage:unit": "cross-env NODE_ENV=COVERAGE TEST_BROWSER_DRIVER=puppeteer COVERAGE=1 COVERAGE_OUT_HTML=1 COVERAGE_APP_FOLDER=%cd%\\ meteor test --once --driver-package meteortesting:mocha --raw-logs",
     "coverage:watch": "cross-env NODE_ENV=COVERAGE COVERAGE=1 COVERAGE_VERBOSE=1 COVERAGE_APP_FOLDER=%cd%\\ TEST_WATCH=1 meteor test --driver-package cultofcoders:mocha --raw-logs",
     "coverage:coverall": "cross-env cat \".coverage/lcov.info\" | \"./node_modules/coveralls/bin/coveralls.js\" || true",
@@ -13,8 +19,8 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.1.5",
-    "babel-runtime": "^6.20.0",
     "meteor-node-stubs": "~0.2.4",
+    "prop-types": "^15.6.2",
     "puppeteer": "^1.11.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
@@ -22,13 +28,26 @@
     "react-transition-group": "^2.5.0"
   },
   "devDependencies": {
+    "@meteorjs/eslint-config-meteor": "^1.0.5",
+    "babel-eslint": "^10.0.1",
     "babel-plugin-istanbul": "^5.1.0",
+    "babel-plugin-transform-decorators-legacy": "^1.3.5",
     "codecov.io": "^0.1.6",
     "coveralls": "^3.0.2",
     "cross-env": "^5.2.0",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.7.0",
-    "nightmare": "^2.10.0"
+    "eslint": "^5.10.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-meteor": "^5.1.0",
+    "eslint-plugin-react": "^7.5.1",
+    "markdownlint-cli": "^0.13.0",
+    "nightmare": "^2.10.0",
+    "stylelint": "^9.9.0",
+    "stylelint-config-css-modules": "^1.3.0",
+    "stylelint-scss": "^3.4.1"
   },
   "babel": {
     "env": {

@@ -1,0 +1,6 @@
+{
+  "default": true,
+  // Rule customizations for markdownlint go here
+  // https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md
+  "line-length": false
+}

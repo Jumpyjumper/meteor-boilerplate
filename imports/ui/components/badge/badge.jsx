@@ -1,30 +1,38 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export default class Badge extends React.Component {
-
-	constructor(props) {
-		super(props);
+class Badge extends React.Component {
+    constructor(props) {
+        super(props);
     }
-    
-    getClassName(){
-        let className = ["badge"];
 
-        if(this.props.type){
-            className.push("badge-" + this.props.type);
+    getClassName() {
+        const className = ['badge'];
+
+        if (this.props.type) {
+            className.push(`badge-${this.props.type}`);
         }
 
-        return className.join(" ");
+        return className.join(' ');
     }
-   
-	render() {
+
+    render() {
         return (
             <span
                 className={this.getClassName()}
                 role="status"
                 aria-live="polite"
-                aria-atomic="true">
+                aria-atomic="true"
+            >
                 {this.props.children}
             </span>
-        )
-	}
+        );
+    }
 }
+
+Badge.propTypes = {
+    type: PropTypes.string,
+    children: PropTypes.node
+};
+
+export default Badge;
