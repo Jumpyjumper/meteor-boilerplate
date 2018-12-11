@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {TableComponent} from './table-component.jsx';
 
-class Th extends React.Component {
+class Th extends TableComponent {
     constructor(props) {
         super(props);
     }
@@ -10,8 +11,7 @@ class Th extends React.Component {
         const className = [];
 
         if (this.props.type) {
-            const bgtype = (this.props.bgdark) ? `bg-${this.props.type}` : `table-${this.props.type}`;
-            className.push(bgtype);
+            className.push(this.getTypeClassName(this.props.type, this.props.bgdark));
         }
 
         if (this.props.className) {
