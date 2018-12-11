@@ -2,7 +2,12 @@ import React from 'react';
 import Alert from '/imports/ui/components/alert/alert.jsx';
 import Badge from '/imports/ui/components/badge/badge.jsx';
 import {H1, H2, H3, H4, H5, H6} from '/imports/ui/components/headings/headings.jsx';
-import {Table, Thead, Tbody, Tr, Th, Td} from '/imports/ui/components/table/table.jsx';
+import {Table} from '/imports/ui/components/table/table.jsx';
+import {Thead} from '/imports/ui/components/table/thead.jsx';
+import {Tbody} from '/imports/ui/components/table/tbody.jsx';
+import {Tr} from '/imports/ui/components/table/tr.jsx';
+import {Th} from '/imports/ui/components/table/th.jsx';
+import {Td} from '/imports/ui/components/table/td.jsx';
 import Caption from '/imports/ui/components/caption/caption.jsx';
 
 export default class Styleguide extends React.Component {
