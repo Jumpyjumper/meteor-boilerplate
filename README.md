@@ -5,5 +5,5 @@
 [![codecov](https://codecov.io/gh/Jumpyjumper/meteor-boilerplate/branch/master/graph/badge.svg)](https://codecov.io/gh/Jumpyjumper/meteor-boilerplate)
 [![Maintainability](https://api.codeclimate.com/v1/badges/b20681eca07cdd8e1a71/maintainability)](https://codeclimate.com/github/Jumpyjumper/meteor-boilerplate/maintainability)
 [![Known Vulnerabilities](https://snyk.io/test/github/Jumpyjumper/meteor-boilerplate/badge.svg?targetFile=package.json)](https://snyk.io/test/github/Jumpyjumper/meteor-boilerplate?targetFile=package.json)
-[![Dependency Status](https://david-dm.org/Jumpyjumper/meteor-boilerplate.svg)](https://david-dm.org/Jumpyjumper/meteor-boilerplate)
+[![Dependency Status](https://david-dm.org/jumpyjumper/meteor-boilerplate.svg)](https://david-dm.org/jumpyjumper/meteor-boilerplate)
 [![devDependencies Status](https://david-dm.org/jumpyjumper/meteor-boilerplate/dev-status.svg)](https://david-dm.org/jumpyjumper/meteor-boilerplate?type=dev)
