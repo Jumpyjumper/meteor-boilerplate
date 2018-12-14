@@ -1,0 +1,1 @@
+navigator.serviceWorker.register('/service-worker.js').then().catch(error => console.log('ServiceWorker registration failed: ', err));
