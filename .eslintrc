@@ -14,7 +14,9 @@
   "globals": {
     "BodyClass": true,
     "_": true,
-    "Breadcrumb": true
+    "Breadcrumb": true,
+    "Assets": true,
+    "Meteor": true
   },
   "plugins": [
       "meteor",
