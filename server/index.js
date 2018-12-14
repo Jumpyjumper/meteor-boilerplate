@@ -1,6 +1,7 @@
 import '/imports/startup/server';
 import {WebApp} from 'meteor/webapp';
 
+
 var favicons = JSON.parse(Assets.getText('favicons.json'));
 var faviconslist = favicons.join("\n");
 
