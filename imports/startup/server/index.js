@@ -1,1 +1,3 @@
-import './favicons.js';
+
+import '../../api/index.js';
+//import './favicons.js';

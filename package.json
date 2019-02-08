@@ -27,7 +27,9 @@
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-mounter": "^1.2.0",
-    "react-transition-group": "^2.5.0"
+    "react-router": "^3.2.1",
+    "react-transition-group": "^2.5.0",
+    "simpl-schema": "^1.5.3"
   },
   "devDependencies": {
     "@meteorjs/eslint-config-meteor": "^1.0.5",

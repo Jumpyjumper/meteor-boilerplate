@@ -28,8 +28,16 @@ class Heading extends React.Component {
 Heading.propTypes = {
     heading: PropTypes.string,
     display: PropTypes.string,
-    className: PropTypes.string
+    className: PropTypes.string,
+    property: PropTypes.string
 
+};
+
+Heading.defaultProps = {
+    heading: "",
+    display: "",
+    className: "",
+    property: null
 };
 
 class H1 extends Heading {
@@ -39,7 +47,7 @@ class H1 extends Heading {
 
     render() {
         return (
-            <h1 className={this.getClassName()}>
+            <h1 className={this.getClassName()} property={this.props.property}>
                 {this.props.children}
             </h1>
         );
@@ -53,7 +61,7 @@ class H2 extends Heading {
 
     render() {
         return (
-            <h2 className={this.getClassName()}>
+            <h2 className={this.getClassName()} property={this.props.property}>
                 {this.props.children}
             </h2>
         );
@@ -67,7 +75,7 @@ class H3 extends Heading {
 
     render() {
         return (
-            <h3 className={this.getClassName()}>
+            <h3 className={this.getClassName()} property={this.props.property}>
                 {this.props.children}
             </h3>
         );
@@ -80,7 +88,7 @@ class H4 extends Heading {
 
     render() {
         return (
-            <h4 className={this.getClassName()}>
+            <h4 className={this.getClassName()} property={this.props.property}>
                 {this.props.children}
             </h4>
         );
@@ -93,7 +101,7 @@ class H5 extends Heading {
 
     render() {
         return (
-            <h5 className={this.getClassName()}>
+            <h5 className={this.getClassName()} property={this.props.property}>
                 {this.props.children}
             </h5>
         );
@@ -106,7 +114,7 @@ class H6 extends Heading {
 
     render() {
         return (
-            <h6 className={this.getClassName()}>
+            <h6 className={this.getClassName()} property={this.props.property}>
                 {this.props.children}
             </h6>
         );
