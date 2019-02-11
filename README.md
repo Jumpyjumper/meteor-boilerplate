@@ -8,9 +8,6 @@
 [![Dependency Status](https://david-dm.org/jumpyjumper/meteor-boilerplate.svg)](https://david-dm.org/jumpyjumper/meteor-boilerplate)
 [![devDependencies Status](https://david-dm.org/jumpyjumper/meteor-boilerplate/dev-status.svg)](https://david-dm.org/jumpyjumper/meteor-boilerplate?type=dev)
 
-
-
-
 Redis
 
 Hygen
@@ -23,4 +20,3 @@ Swagger
 Test
 test-local
 test-live
-
