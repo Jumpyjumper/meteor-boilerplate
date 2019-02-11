@@ -22,6 +22,8 @@ describe('Foo publications', () => {
       });
     }).then(function(col) {
       chai.assert.notEqual(col, null);
+    }).catch(function(err){
+
     });
   });    
 });
