@@ -42,10 +42,6 @@ if(Meteor.isClient){
 	    const item = shallow(<Breadcrumbs breadcrumbs={breadcrumbs}/>);
 	    expect(item.find('ol li').at(0).text()).to.equal("routeName1");
 	  });
-	  it('should not render a link if breadcrumb as active set as "true"', () => {
-	    const item = shallow(<Breadcrumbs breadcrumbs={breadcrumbs}/>);
-	    chai.assert(!item.find('ol li').at(1).exists("a"), "rendered a link whereas active was set as \"true\"");
-	  });
     });
 	
 }
