@@ -1,13 +1,14 @@
+
 import { Meteor } from 'meteor/meteor';
 import { chai } from 'meteor/practicalmeteor:chai';
 import { resetDatabase } from 'meteor/xolvio:cleaner';
 import { Factory } from 'meteor/dburles:factory';
-import Foo from './foo.collection';
-import { upsertFoo } from './foo.methods';
+import Foo from './collection';
+import { upsertFoo } from './methods';
 
 
 Factory.define('foo', Foo, {
-  bar: () => 'Factory bar'
+  foo: () => 'Factory foo'
 });
 
 describe('Foo methods', function () {
@@ -19,11 +20,11 @@ describe('Foo methods', function () {
 
   it('inserts a foo into the Foo collection', function () {
     upsertFoo.call({
-      bar: 'You can\'t arrest me, I\'m the Cake Boss!'
+      foo: 'You can\'t arrest me, I\'m the Cake Boss!'
     });
 
-    const getFoo = Foo.findOne({ bar: 'You can\'t arrest me, I\'m the Cake Boss!' });
-    chai.assert.equal(getFoo.bar, 'You can\'t arrest me, I\'m the Cake Boss!');
+    const getFoo = Foo.findOne({ foo: 'You can\'t arrest me, I\'m the Cake Boss!' });
+    chai.assert.equal(getFoo.foo, 'You can\'t arrest me, I\'m the Cake Boss!');
   });
 
   it('updates a foo in the Foo collection', function () {
@@ -31,10 +32,10 @@ describe('Foo methods', function () {
 
     upsertFoo.call({
       _id,
-      bar: 'You can\'t arrest me, I\'m the Cake Boss!'
+      foo: 'You can\'t arrest me, I\'m the Cake Boss!'
     });
 
     const getFoo = Foo.findOne(_id);
-    chai.assert.equal(getFoo.bar, 'You can\'t arrest me, I\'m the Cake Boss!');
+    chai.assert.equal(getFoo.foo, 'You can\'t arrest me, I\'m the Cake Boss!');
   });
 });

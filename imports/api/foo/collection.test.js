@@ -1,5 +1,6 @@
+
 import { chai } from 'meteor/practicalmeteor:chai';
-import Foo from './foo.collection';
+import Foo from './collection';
 
 describe('Foo collection', function () {
   it('registers the collection with Mongo properly', function () {

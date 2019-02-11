@@ -1,3 +1,4 @@
+
 import SimpleSchema from 'simpl-schema';
 
 const FooSchema = new SimpleSchema({
@@ -6,9 +7,9 @@ const FooSchema = new SimpleSchema({
     label: 'The _id',
     required: false
   },
-  bar: {
+  foo: {
     type: String,
-    label: 'The bar',
+    label: 'The foo',
     required: true
   }
 });

@@ -1,5 +1,6 @@
+
 import { Mongo } from 'meteor/mongo';
-import { FooSchema } from './foo.schema';
+import { FooSchema } from './schema';
 import SimpleSchema from 'simpl-schema';
 
 
@@ -21,3 +22,5 @@ Foo.attachSchema(FooSchema);
 
 
 export default Foo;
+
+

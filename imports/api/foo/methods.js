@@ -1,8 +1,9 @@
+
 import SimpleSchema from 'simpl-schema';
 import { ValidatedMethod } from 'meteor/mdg:validated-method';
-
-import Foo from './foo.collection';
-import { FooSchema } from './foo.schema';
+import { validateId } from '/imports/api/schema.js';
+import Foo from './collection';
+import { FooSchema } from './schema';
 
 export const upsertFoo = new ValidatedMethod({
   name: 'foo.upsert',
@@ -12,3 +13,10 @@ export const upsertFoo = new ValidatedMethod({
   },
 });
 
+export const deleteFoo = new ValidatedMethod({
+  name: 'foo.delete',
+  validate: validateId,
+  run({_id}) {
+    return Foo.update({_id}, {$set: {deleted: true}});
+  },
+});
