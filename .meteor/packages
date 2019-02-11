@@ -43,5 +43,6 @@ aldeed:collection2
 mdg:validated-method
 xolvio:cleaner
 dburles:factory
+johanbrook:publication-collector
 
 react-meteor-data
