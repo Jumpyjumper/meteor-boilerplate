@@ -17,7 +17,8 @@
     "Breadcrumb": true,
     "Assets": true,
     "Meteor": true,
-    "Restivus": true
+    "Restivus": true,
+    "App": true
   },
   "plugins": [
       "meteor",
