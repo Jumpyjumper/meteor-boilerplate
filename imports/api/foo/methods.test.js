@@ -14,7 +14,7 @@ Factory.define('foo', Foo, {
 describe('Foo methods', function () {
   beforeEach(function () {
     if (Meteor.isServer) {
-      resetDatabase();
+      //resetDatabase(); 
     }
   });
 
