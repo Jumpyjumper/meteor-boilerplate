@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "start": "meteor run --settings settings-development.json",
-    "test": "cross-env NODE_ENV=COVERAGE TEST_BROWSER_DRIVER=puppeteer COVERAGE=1 COVERAGE_OUT_HTML=1 COVERAGE_APP_FOLDER=$(pwd)/ meteor test --once --driver-package meteortesting:mocha --raw-logs && cat .coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js || true && cat .coverage/lcov.info | ./node_modules/codecov.io/bin/codecov.io.js || true",
+    "test": "cross-env BABEL_ENV=COVERAGE TEST_BROWSER_DRIVER=puppeteer COVERAGE=1 COVERAGE_OUT_HTML=1 COVERAGE_APP_FOLDER=$(pwd)/ meteor test --once --driver-package meteortesting:mocha --raw-logs && cat .coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js || true && cat .coverage/lcov.info | ./node_modules/codecov.io/bin/codecov.io.js || true",
     "test-local": "cross-env TEST_BROWSER_DRIVER=nightmare meteor test --once --driver-package dispatch:mocha",
     "test-live": "meteor test --driver-package=cultofcoders:mocha",
     "lint": "npm run-script lint:javascript && npm run-script lint:markdown && npm run-script lint:style",
@@ -12,8 +12,8 @@
     "lint:markdown": "markdownlint \"*.md\"",
     "lint:style": "stylelint \"styles/**/*.scss\"",
     "pretest": "npm run-script lint",
-    "coverage:unit": "cross-env NODE_ENV=COVERAGE TEST_BROWSER_DRIVER=puppeteer COVERAGE=1 COVERAGE_OUT_HTML=1 COVERAGE_APP_FOLDER=%cd%\\ meteor test --once --driver-package meteortesting:mocha --raw-logs",
-    "coverage:watch": "cross-env NODE_ENV=COVERAGE COVERAGE=1 COVERAGE_VERBOSE=1 COVERAGE_APP_FOLDER=%cd%\\ TEST_WATCH=1 meteor test --driver-package cultofcoders:mocha --raw-logs",
+    "coverage:unit": "cross-env BABEL_ENV=COVERAGE TEST_BROWSER_DRIVER=puppeteer COVERAGE=1 COVERAGE_OUT_HTML=1 COVERAGE_APP_FOLDER=%cd%\\ meteor test --once --driver-package meteortesting:mocha --raw-logs",
+    "coverage:watch": "cross-env BABEL_ENV=COVERAGE COVERAGE=1 COVERAGE_VERBOSE=1 COVERAGE_APP_FOLDER=%cd%\\ TEST_WATCH=1 meteor test --driver-package cultofcoders:mocha --raw-logs",
     "coverage:coverall": "cross-env cat \".coverage/lcov.info\" | \"./node_modules/coveralls/bin/coveralls.js\" || true",
     "coverage:unit:full": "npm run-script coverage:unit && npm run-script coverage:coverall"
   },
