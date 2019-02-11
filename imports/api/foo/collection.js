@@ -5,20 +5,17 @@ import { FooSchema } from './schema';
 const Foo = new Mongo.Collection('foo');
 
 Foo.allow({
-    insert: () => false,
-    update: () => false,
-    remove: () => false,
+    insert: () => Meteor.isTest,
+    update: () => Meteor.isTest,
+    remove: () => Meteor.isTest,
 });
 
 Foo.deny({
-    insert: () => true,
-    update: () => true,
-    remove: () => true,
+    insert: () => !Meteor.isTest,
+    update: () => !Meteor.isTest,
+    remove: () => !Meteor.isTest,
 });
 
 Foo.attachSchema(FooSchema);
 
-
 export default Foo;
-
-
