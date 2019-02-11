@@ -5,7 +5,7 @@ import {H1, H2, H3, H4, H5, H6} from '/imports/ui/components/headings/headings.j
 import {Table, Thead, Tbody, Tr, Th, Td} from '/imports/ui/components/table/index.jsx';
 import Caption from '/imports/ui/components/caption/caption.jsx';
 
-export default class Styleguide extends React.Component { 
+export default class Styleguide extends React.Component {
     constructor(props) {
         super(props);
     }

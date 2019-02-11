@@ -1,6 +1,6 @@
 import {FlowRouter} from 'meteor/ostrio:flow-router-extra';
 import {mount} from 'react-mounter';
-import {MainLayout} from '/imports/ui/layouts/MainLayout.jsx';
+import {MainLayout} from '/imports/ui/layouts/mainlayout.jsx';
 import Homepage from '/imports/ui/pages/homepage.jsx';
 import Styleguide from '/imports/ui/pages/styleguide.jsx';
 import React from 'react';

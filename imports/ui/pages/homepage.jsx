@@ -13,11 +13,11 @@ class Homepage extends React.Component {
         upsertFoo.call({
             foo: Math.random().toString()
         }, (err) => {
-          if (err) {
-            console.error(err);
-          } else {
-            console.log("good")
-          }
+            if (err) {
+                console.error(err);
+            } else {
+                console.log("good")
+            }
         });
     }
 
@@ -37,7 +37,7 @@ class Homepage extends React.Component {
     }
 }
 
-export default withTracker((params) => {
+export default withTracker(() => {
     let foos = Meteor.subscribe("foo", {});
     return {
         foosReady: foos.ready(),
