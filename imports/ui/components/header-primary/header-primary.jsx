@@ -8,9 +8,9 @@ class HeaderPrimary extends React.Component {
     }
 
     render() {
-        return (            
+        return (
             <header>
-                <H1 property={"schema:headline"}>{this.props.title}</H1>      
+                <H1 property={"schema:headline"}>{this.props.title}</H1>
             </header>
         );
     }

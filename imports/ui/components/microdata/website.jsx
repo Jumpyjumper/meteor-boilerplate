@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {H1} from '../headings/headings.jsx';
 
 class MDWebsite extends React.Component {
     constructor(props) {
@@ -8,20 +7,31 @@ class MDWebsite extends React.Component {
     }
 
     render() {
-        return (            
+        return (
             <div className="hidden" aria-hidden={true}>
-            	<meta property="schema:accessibilityAPI" content={this.props.accessibilityAPI}/>
-            	<meta property="schema:url" content={this.props.url}/>
-            	<meta property="schema:description" content={this.props.description}/>
-            	<meta property="schema:inLanguage" content={this.props.inLanguage}/>
-            </div>   
+                <meta property="schema:accessibilityAPI" content={this.props.accessibilityAPI}/>
+                <meta property="schema:url" content={this.props.url}/>
+                <meta property="schema:description" content={this.props.description}/>
+                <meta property="schema:inLanguage" content={this.props.inLanguage}/>
+            </div>
         );
     }
 }
 
-MDWebsite.propTypes = {
+MDWebsite.defaultProps = {
+    accessibilityAPI: null,
+    url: null,
+    description: null,
+    inLanguage: null
 };
-  
-export default MDWebsite; 
+
+MDWebsite.propTypes = {
+    accessibilityAPI: PropTypes.string,
+    url: PropTypes.string,
+    description: PropTypes.string,
+    inLanguage: PropTypes.string
+};
+
+export default MDWebsite;
 
         

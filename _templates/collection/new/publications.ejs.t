@@ -7,5 +7,5 @@ to: imports/api/<%= name %>/server/publications.js
 import <%=Name%> from '../collection';
 
 Meteor.publish("<%=name%>", function (filter) {
-    return <%=Name%>.find({});    
+    return <%=Name%>.find(filter);    
 });

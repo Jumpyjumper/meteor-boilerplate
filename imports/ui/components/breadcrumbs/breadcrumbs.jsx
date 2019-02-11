@@ -12,8 +12,8 @@ export default class Breadcrumbs extends React.Component {
                 <ol className="breadcrumb" property="schema:breadcrumb" typeof="schema:BreadcrumbList">
                     {
                         _.map(this.props.breadcrumbs, (breadcrumb, index) => (
-                            <li 
-                                key={`breadcrumb-${index}`} className={breadcrumb.active ? 'breadcrumb-item active' : 'breadcrumb-item'} 
+                            <li
+                                key={`breadcrumb-${index}`} className={breadcrumb.active ? 'breadcrumb-item active' : 'breadcrumb-item'}
                                 aria-current={breadcrumb.active ? 'page' : null}
                                 property="schema:itemListElement"
                                 typeof="schema:ListItem">

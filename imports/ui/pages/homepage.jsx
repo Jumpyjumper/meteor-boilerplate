@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { withTracker } from 'meteor/react-meteor-data';
 import Foo from '../../api/foo/collection';
 import { upsertFoo } from '../../api/foo/methods';
@@ -12,12 +13,6 @@ class Homepage extends React.Component {
     addFoo(){
         upsertFoo.call({
             foo: Math.random().toString()
-        }, (err) => {
-            if (err) {
-                console.error(err);
-            } else {
-                console.log("good")
-            }
         });
     }
 
@@ -36,6 +31,16 @@ class Homepage extends React.Component {
         );
     }
 }
+
+Homepage.defaultProps = {
+    foos: [],
+    foosReady: false
+};
+
+Homepage.propTypes = {
+    foos: PropTypes.string,
+    foosReady: PropTypes.arrayOf(PropTypes.object)
+};
 
 export default withTracker(() => {
     let foos = Meteor.subscribe("foo", {});

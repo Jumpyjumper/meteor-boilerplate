@@ -6,8 +6,6 @@ to: imports/api/<%= name %>/collection.js
 %>
 import { Mongo } from 'meteor/mongo';
 import { <%=Name%>Schema } from './schema';
-import SimpleSchema from 'simpl-schema';
-
 
 const <%=Name%> = new Mongo.Collection('<%=name%>');
 

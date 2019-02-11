@@ -4,6 +4,7 @@ to: imports/api/<%= name %>/server/swagger.js
 <%
  Name = h.capitalize(name)
 %>
+import { ApiV1 } from '/imports/api/swagger'
 import { upsert<%=Name%> } from '../methods';
 ApiV1.addRoute(
 		'<%=name%>/:id', 
@@ -29,13 +30,6 @@ ApiV1.addRoute(
 							description: "Success"
 						}
 					}
-				},
-				action: function(){
-					try {
-					}
-					catch(e){
-						return e;
-					}
 				}
 			},
 			post: {
@@ -59,6 +53,7 @@ ApiV1.addRoute(
 				},
 				action: function(){
 					try {
+						upsert<%=Name%>
 					}
 					catch(e){
 						return e;
@@ -83,13 +78,6 @@ ApiV1.addRoute(
 							description: "Success"
 						}
 					}
-				},
-				action: function(){
-					try {
-					}
-					catch(e){
-						return e;
-					}
 				}
 			},
 			delete: {
@@ -109,13 +97,6 @@ ApiV1.addRoute(
 						"200": {
 							description: "Success"
 						}
-					}
-				},
-				action: function(){
-					try {
-					}
-					catch(e){
-						return e;
 					}
 				}
 			}   
