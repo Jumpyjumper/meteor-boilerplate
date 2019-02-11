@@ -7,3 +7,20 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/Jumpyjumper/meteor-boilerplate/badge.svg?targetFile=package.json)](https://snyk.io/test/github/Jumpyjumper/meteor-boilerplate?targetFile=package.json)
 [![Dependency Status](https://david-dm.org/jumpyjumper/meteor-boilerplate.svg)](https://david-dm.org/jumpyjumper/meteor-boilerplate)
 [![devDependencies Status](https://david-dm.org/jumpyjumper/meteor-boilerplate/dev-status.svg)](https://david-dm.org/jumpyjumper/meteor-boilerplate?type=dev)
+
+
+
+
+Redis
+
+Hygen
+hygen collection new --name bar
+
+Schema
+
+Swagger
+
+Test
+test-local
+test-live
+
