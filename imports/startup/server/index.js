@@ -1,3 +1,3 @@
-
-import '../../api/index.js';
+import '../../api/';
+import './head';
 //import './favicons.js';
