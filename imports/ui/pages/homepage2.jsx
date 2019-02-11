@@ -1,7 +1,7 @@
 import React from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
-import Foo from '../../api/foo/foo.collection';
-import { upsertFoo } from '../../api/foo/foo.methods';
+import Foo from '../../api/foo/collection';
+import { upsertFoo } from '../../api/foo/methods';
 
 class Homepage extends React.Component {
     constructor(props) {
@@ -11,7 +11,7 @@ class Homepage extends React.Component {
 
     addFoo(){
         upsertFoo.call({
-            bar: Math.random().toString()
+            foo: Math.random().toString()
         }, (err) => {
           if (err) {
             console.error(err);
@@ -28,7 +28,7 @@ class Homepage extends React.Component {
                 {
                     _.map(this.props.foos, function(foo){
                         return (
-                            <p key={foo._id}>{foo.bar}</p>
+                            <p key={foo._id}>{foo.foo}</p>
                         )
                     })
                 }
