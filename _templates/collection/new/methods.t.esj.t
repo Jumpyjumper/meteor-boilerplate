@@ -5,32 +5,30 @@ to: imports/api/<%= name %>/methods.test.js
  Name = h.capitalize(name)
 %>
 import { Meteor } from 'meteor/meteor';
+import <%=Name%> from './collection';
 import { chai } from 'meteor/practicalmeteor:chai';
 import { resetDatabase } from 'meteor/xolvio:cleaner';
 import { Factory } from 'meteor/dburles:factory';
-import <%=Name%> from './collection';
-import {Random} from 'meteor/random';
 import { upsert<%=Name%>, delete<%=Name%> } from './methods';
-
+import { createStubs, restoreStubs } from '/imports/api/stubs.test.js'
 
 Factory.define('<%=name%>', <%=Name%>, {
-  <%=name%>: () => 'Factory <%=name%>',
-  created: () => new Date(),
-  createdBy: () => Random.id(),
-  createdAt: () => new Date(),
-  createdBy: () => Random.id(),
-  modifiedAt: () => new Date(),
-  modifiedBy: () => Random.id(),
-  deleted: () => false
+  <%=name%>: () => 'Factory <%=name%>'
 });
 
 describe('<%=Name%> methods', function () {
-    beforeEach(function () {
-      if (Meteor.isServer) {
-        resetDatabase();
-      }
-    });
-
+  beforeEach(() => {
+    if(Meteor.isServer){
+      resetDatabase();
+    }
+    createStubs();
+  });
+  afterEach(() => {
+    if(Meteor.isServer){
+      resetDatabase();        
+    }
+    restoreStubs();
+  });
   it('inserts a <%=name%> into the <%=Name%> collection', function () {
     upsert<%=Name%>.call({
         <%=name%>: 'You can\'t arrest me, I\'m the Cake Boss!'
@@ -60,4 +58,6 @@ describe('<%=Name%> methods', function () {
     chai.assert.equal(deleted<%=Name%>.deleted, true);
   });
 });
+
+
 

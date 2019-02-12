@@ -1,31 +1,29 @@
 
 import { Meteor } from 'meteor/meteor';
+import Foo from './collection';
 import { chai } from 'meteor/practicalmeteor:chai';
 import { resetDatabase } from 'meteor/xolvio:cleaner';
 import { Factory } from 'meteor/dburles:factory';
-import Foo from './collection';
-import {Random} from 'meteor/random';
 import { upsertFoo, deleteFoo } from './methods';
-
+import { createStubs, restoreStubs } from '/imports/api/stubs.test.js'
 
 Factory.define('foo', Foo, {
-  foo: () => 'Factory foo',
-  created: () => new Date(),
-  createdBy: () => Random.id(),
-  createdAt: () => new Date(),
-  createdBy: () => Random.id(),
-  modifiedAt: () => new Date(),
-  modifiedBy: () => Random.id(),
-  deleted: () => false
+  foo: () => 'Factory foo'
 });
 
 describe('Foo methods', function () {
-    beforeEach(function () {
-      if (Meteor.isServer) {
-        resetDatabase();
-      }
-    });
-
+  beforeEach(() => {
+    if(Meteor.isServer){
+      resetDatabase();
+    }
+    createStubs();
+  });
+  afterEach(() => {
+    if(Meteor.isServer){
+      resetDatabase();        
+    }
+    restoreStubs();
+  });
   it('inserts a foo into the Foo collection', function () {
     upsertFoo.call({
         foo: 'You can\'t arrest me, I\'m the Cake Boss!'
@@ -55,4 +53,6 @@ describe('Foo methods', function () {
     chai.assert.equal(deletedFoo.deleted, true);
   });
 });
+
+
 

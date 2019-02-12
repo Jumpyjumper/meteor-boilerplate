@@ -40,7 +40,7 @@ export const updatedAtSchema = new SimpleSchema({
         autoValue() {
             if (this.isInsert) {
                 return getCreatedAt.call(this) || new Date();
-            } else if (this.isUpsert) {
+            } else if (this.isUpdate) {
                 return {
                     $set: new Date(),
                     $setOnInsert: getCreatedAt.call(this) || new Date()
@@ -59,7 +59,7 @@ export const createdBySchema = new SimpleSchema({
             const {userId} = this;
 
             if (userId) {
-                if (this.isUpsert) {
+                if (this.isUpsert) {                	
                     return {$setOnInsert: userId};
                 }
 
@@ -80,16 +80,13 @@ export const updatedBySchema = new SimpleSchema({
         autoValue() {
             const {userId} = this;
 
-            if (!userId) {
-                this.unset();
-                return;
+            if (userId) {
+                if (this.isUpdate) {
+	                return {$set: userId};
+	            }
             }
 
-            if (this.isModifier) {
-                return {$set: userId};
-            }
-
-            return userId;
+            this.unset();
         },
         optional: true
     }

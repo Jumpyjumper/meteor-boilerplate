@@ -37,6 +37,7 @@ ostrio:logger
 ostrio:loggerconsole
 
 practicalmeteor:chai
+practicalmeteor:sinon
 lmieulet:meteor-coverage
 
 aldeed:collection2
