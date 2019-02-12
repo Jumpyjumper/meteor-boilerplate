@@ -59,7 +59,7 @@ export const createdBySchema = new SimpleSchema({
             const {userId} = this;
 
             if (userId) {
-                if (this.isUpsert) {                	
+                if (this.isUpsert) {
                     return {$setOnInsert: userId};
                 }
 
@@ -82,8 +82,8 @@ export const updatedBySchema = new SimpleSchema({
 
             if (userId) {
                 if (this.isUpdate) {
-	                return {$set: userId};
-	            }
+                    return {$set: userId};
+                }
             }
 
             this.unset();
