@@ -37,7 +37,7 @@ ostrio:logger
 ostrio:loggerconsole
 
 practicalmeteor:chai
-lmieulet:meteor-coverage@1.1.4
+lmieulet:meteor-coverage
 
 aldeed:collection2
 mdg:validated-method

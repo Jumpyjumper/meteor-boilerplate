@@ -3,11 +3,11 @@ import SimpleSchema from 'simpl-schema';
 import { ValidatedMethod } from 'meteor/mdg:validated-method';
 import { validateId } from '/imports/api/schema.js';
 import Foo from './collection';
-import { FooSchema } from './schema';
+import { FooFieldsSchema } from './schema';
 
 export const upsertFoo = new ValidatedMethod({
     name: 'foo.upsert',
-    validate: new SimpleSchema(FooSchema).validator(),
+    validate: new SimpleSchema(FooFieldsSchema).validator(),
     run(foo) {
         return Foo.upsert({ _id: foo._id }, { $set: foo });
     },

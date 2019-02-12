@@ -1,7 +1,8 @@
 
 import SimpleSchema from 'simpl-schema';
+import {createdAtSchema, createdBySchema, deletedSchema, updatedAtSchema, updatedBySchema} from '/imports/api/schema';
 
-const FooSchema = new SimpleSchema({
+const FooFieldsSchema  = new SimpleSchema({
     _id: {
         type: String,
         label: 'The _id',
@@ -12,8 +13,22 @@ const FooSchema = new SimpleSchema({
         label: 'The foo',
         required: true
     }
+}, {
+    clean: {
+        removeEmptyStrings: false,
+        filter: false
+    }
 });
 
+const FooSchema = new SimpleSchema({});
+FooSchema.extend(FooFieldsSchema);
+FooSchema.extend(deletedSchema);
+FooSchema.extend(createdAtSchema);
+FooSchema.extend(updatedAtSchema);
+FooSchema.extend(createdBySchema);
+FooSchema.extend(updatedBySchema);
+
 export {
+    FooFieldsSchema,
     FooSchema
 }

@@ -9,18 +9,8 @@ import { <%=Name%>Schema } from './schema';
 
 const <%=Name%> = new Mongo.Collection('<%=name%>');
 
-<%=Name%>.allow({
-  insert: () => Meteor.isTest,
-  update: () => Meteor.isTest,
-  remove: () => Meteor.isTest,
-});
-
-<%=Name%>.deny({
-  insert: () => !Meteor.isTest,
-  update: () => !Meteor.isTest,
-  remove: () => !Meteor.isTest,
-});
-
 <%=Name%>.attachSchema(<%=Name%>Schema);
 
 export default <%=Name%>;
+
+

@@ -38,8 +38,8 @@ Homepage.defaultProps = {
 };
 
 Homepage.propTypes = {
-    foos: PropTypes.string,
-    foosReady: PropTypes.arrayOf(PropTypes.object)
+    foos: PropTypes.arrayOf(PropTypes.object),
+    foosReady: PropTypes.bool,
 };
 
 export default withTracker(() => {
