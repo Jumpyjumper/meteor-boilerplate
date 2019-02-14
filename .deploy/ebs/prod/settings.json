@@ -1,0 +1,51 @@
+{
+    "redisOplog": {
+        "redis": {
+        "port": 6379, 
+        "host": "127.0.0.1"
+        },
+        "retryIntervalMs": 10000, 
+        "mutationDefaults": {
+            "optimistic": true, 
+            "pushToRedis": true 
+        },
+        "debug": false, 
+        "overridePublishFunction": true
+    },
+  
+    "private": {
+        "favicons": {      
+            "path": "/favicons/",                                
+            "appName": "Meteor boilerplate",                        
+            "appShortName": "Meteor boilerplate",            
+            "appDescription": "Boilerplate for Meteor",         
+            "developerName": "Fabien Maronnaud",                  
+            "developerURL": null,                      
+            "dir": "auto",                            
+            "lang": "en-US",                           
+            "background": "#fff",                    
+            "theme_color": "#fff",                      
+            "appleStatusBarStyle": "black-translucent",
+            "display": "standalone",                    
+            "orientation": "any",                     
+            "scope": "/",                             
+            "start_url": "/",             
+            "version": "1.0",                          
+            "logging": false,                         
+            "pixel_art": false,                         
+            "loadManifestWithCredentials": false,      
+            "icons": {               
+                "android": true,              
+                "appleIcon": true,            
+                "appleStartup": true,        
+                "coast": true,               
+                "favicons": true,            
+                "firefox": true,             
+                "windows": true,              
+                "yandex": true            
+            }
+        }
+    }
+  }
+  
+  
