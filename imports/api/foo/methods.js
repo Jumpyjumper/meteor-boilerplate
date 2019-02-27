@@ -13,6 +13,22 @@ export const upsertFoo = new ValidatedMethod({
     },
 });
 
+export const insertFoo = new ValidatedMethod({
+    name: 'foo.insert',
+    validate: new SimpleSchema(FooFieldsSchema).validator(),
+    run(foo) {
+        return Foo.insert(foo);
+    },
+});
+
+export const updateFoo = new ValidatedMethod({
+    name: 'foo.update',
+    validate: new SimpleSchema(FooFieldsSchema).validator(),
+    run(foo) {
+        return Foo.update({_id: foo._id}, { $set: foo });
+    },
+});
+
 export const deleteFoo = new ValidatedMethod({
     name: 'foo.delete',
     validate: validateId,

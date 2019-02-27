@@ -3,13 +3,8 @@ import { Meteor } from 'meteor/meteor';
 import Foo from './collection';
 import { chai } from 'meteor/practicalmeteor:chai';
 import { resetDatabase } from 'meteor/xolvio:cleaner';
-import { Factory } from 'meteor/dburles:factory';
 import { upsertFoo, deleteFoo } from './methods';
 import { createStubs, restoreStubs } from '/imports/api/stubs.test.js'
-
-Factory.define('foo', Foo, {
-  foo: () => 'Factory foo'
-});
 
 describe('Foo methods', function () {
   beforeEach(() => {

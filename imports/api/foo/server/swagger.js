@@ -1,41 +1,29 @@
 
 import { ApiV1 } from '/imports/api/swagger'
-import { upsertFoo } from '../methods';
+import { insertFoo, updateFoo, deleteFoo } from '../methods';
+
 ApiV1.addRoute(
     'foo/:id',
     {
         hidden: false
     },
     {
-        get: {
+        patch: {
             swagger: {
                 tags: ["Foo"],
                 description: "Select foo",
                 parameters: [
                     {
-                        name: "id",
-                        in: "path",
-                        description: "Foo ID",
+                        name: 'id',
+                        in: 'path',
+                        description: 'Foo ID',
                         required: true,
-                        type: "string"
-                    }
-                ],
-                responses: {
-                    "200": {
-                        description: "Success"
-                    }
-                }
-            }
-        },
-        post: {
-            swagger: {
-                tags: ["Foo"],
-                description: "Insert a foo",
-                parameters: [
+                        type: 'string'
+                    },
                     {
-                        name: "id",
+                        name: "foo",
                         in: "path",
-                        description: "Foo ID",
+                        description: "Foo foo",
                         required: true,
                         type: "string"
                     }
@@ -48,24 +36,32 @@ ApiV1.addRoute(
             },
             action: function(){
                 try {
-                    upsertFoo
+                    const {body: foo} = this.request;
+                    const {id} = this.urlParams;
+                    foo._id = id;
+
+                    updateFoo.call(foo);
+
+                    return {data: {status: 'success'}};
                 }
                 catch(e){
                     return e;
                 }
             }
-        },
-        patch: {
+        }
+    },
+    {
+        delete: {
             swagger: {
                 tags: ["Foo"],
-                description: "Update a foo",
+                description: "Select foo",
                 parameters: [
                     {
-                        name: "id",
-                        in: "path",
-                        description: "Foo ID",
+                        name: 'id',
+                        in: 'path',
+                        description: 'Foo ID',
                         required: true,
-                        type: "string"
+                        type: 'string'
                     }
                 ],
                 responses: {
@@ -73,27 +69,62 @@ ApiV1.addRoute(
                         description: "Success"
                     }
                 }
-            }
-        },
-        delete: {
-            swagger: {
-                tags: ["Foo"],
-                description: "Delete a foo",
-                parameters: [
-                    {
-                        name: "id",
-                        in: "path",
-                        description: "Foo ID",
-                        required: true,
-                        type: "string"
-                    }
-                ],
-                responses: {
-                    "200": {
-                        description: "Success"
-                    }
+            },
+            action: function(){
+                try {
+                    const {id} = this.urlParams;
+
+                    deleteFoo.call(id);
+
+                    return {data: {status: 'success'}};
+                }
+                catch(e){
+                    return e;
                 }
             }
         }
     }
 );
+
+
+ApiV1.addRoute(
+    'foo',
+    {
+        hidden: false
+    },
+    {
+        post: {
+            swagger: {
+                tags: ["Foo"],
+                description: "Select foo",
+                parameters: [
+                    {
+                        name: "foo",
+                        in: "path",
+                        description: "Foo foo",
+                        required: true,
+                        type: "string"
+                    }
+                ],
+                responses: {
+                    "200": {
+                        description: "Success"
+                    }
+                }
+            },
+            action: function(){
+                try {
+                    const {body: foo} = this.request;
+
+                    insertFoo.call(foo);
+
+                    return {data: {status: 'success'}};
+                }
+                catch(e){
+                    return e;
+                }
+            }
+        }
+    }
+);
+
