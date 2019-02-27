@@ -1,4 +1,4 @@
 
-Meteor.publish("users", function (filter) {
-    return Meteor.users.find(filter);
+Meteor.publish("users", function (filters = {}, options = {}) {
+    return Meteor.users.find(filters, options);
 });
