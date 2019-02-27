@@ -15,10 +15,10 @@ if(Meteor.isServer){
             swagger: "2.0",
             info: {
                 version: "1.0.0",
-                title: "ppp",
-                description: "ppp",
+                title: "Meteor boilerplate",
+                description: "Meteor boilerplate",
                 contact: {
-                    name: "ppp"
+                    name: "Fabien Maronnaud"
                 },
                 license: {
                     name: "MIT"
