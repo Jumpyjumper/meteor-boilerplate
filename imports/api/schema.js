@@ -16,12 +16,12 @@ export const deletedSchema = new SimpleSchema({
 // It currently depends on the old simple-schema and it causes unexpected errors
 export const createdAtSchema = new SimpleSchema({
     createdAt: {
-        type: Date,
+        type: "datetime-local",
         autoValue() {
             if (this.isInsert) {
-                return new Date();
+                return Date.now();
             } else if (this.isUpsert) {
-                return {$setOnInsert: new Date()};
+                return {$setOnInsert: Date.now()};
             }
 
             // otherwise unset it
@@ -36,18 +36,18 @@ function getCreatedAt() {
 
 export const updatedAtSchema = new SimpleSchema({
     updatedAt: {
-        type: Date,
+        type: "datetime-local",
         autoValue() {
             if (this.isInsert) {
-                return getCreatedAt.call(this) || new Date();
+                return getCreatedAt.call(this) || Date.now();
             } else if (this.isUpdate) {
                 return {
-                    $set: new Date(),
-                    $setOnInsert: getCreatedAt.call(this) || new Date()
+                    $set: Date.now(),
+                    $setOnInsert: getCreatedAt.call(this) || Date.now()
                 };
             }
 
-            return new Date();
+            return Date.now();
         }
     }
 });
@@ -58,14 +58,12 @@ export const createdBySchema = new SimpleSchema({
         autoValue() {
             const {userId} = this;
 
-            if (userId) {
-                if (this.isUpsert) {
-                    return {$setOnInsert: userId};
-                }
+            if (userId && this.isUpsert) {
+                return {$setOnInsert: userId};
+            }
 
-                if (this.isInsert) {
-                    return userId;
-                }
+            if (userId && this.isInsert) {
+                return userId;
             }
 
             this.unset();
@@ -79,11 +77,9 @@ export const updatedBySchema = new SimpleSchema({
         type: String,
         autoValue() {
             const {userId} = this;
-
-            if (userId) {
-                if (this.isUpdate) {
-                    return {$set: userId};
-                }
+            
+            if (userId && this.isUpdate) {
+                return {$set: userId};
             }
 
             this.unset();
