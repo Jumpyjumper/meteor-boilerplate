@@ -1,4 +1,4 @@
-if(navigator && navigator.serviceWorker){
+if(navigator && navigator.serviceWorker && !Meteor.isCordova){
   navigator.serviceWorker.getRegistrations().then(function (registrations) {
     if (!registrations.length) {
       console.log('No serviceWorker registrations found.')
