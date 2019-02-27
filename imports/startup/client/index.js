@@ -1,2 +1,3 @@
 import './service-worker';
-import './routes/'
+import './routes/index.js';
+import './accounts.js'

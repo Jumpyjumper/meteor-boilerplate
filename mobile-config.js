@@ -46,3 +46,5 @@ App.icons({
     android_xxhdpi: 'resources/icons/android_xxhdpi.png',
     android_xxxhdpi: 'resources/icons/android_xxxhdpi.png'
 });
+
+App.accessRule("*");
