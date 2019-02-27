@@ -18,7 +18,11 @@
     "Assets": true,
     "Meteor": true,
     "Restivus": true,
-    "App": true
+    "App": true,
+    "moment": true,
+    "Accounts": true,
+    "ServiceConfiguration": true,
+    "Session": true
   },
   "plugins": [
       "meteor",
@@ -49,6 +53,7 @@
       "switch-colon-spacing": [0],
       "no-invalid-this": [0],
       "new-cap": [1],
+      "meteor/no-session": [0],
       "no-trailing-spaces": [2, {
           "skipBlankLines": true
       }],
