@@ -18,6 +18,22 @@ export const upsert<%=Name%> = new ValidatedMethod({
   },
 });
 
+export const insert<%=Name%> = new ValidatedMethod({
+  name: '<%=name%>.insert',
+  validate: new SimpleSchema(<%=Name%>FieldsSchema).validator(),
+  run(<%=name%>) {
+    return <%=Name%>.insert(<%=name%>);
+  },
+});
+
+export const update<%=Name%> = new ValidatedMethod({
+  name: '<%=name%>.update',
+  validate: new SimpleSchema(<%=Name%>FieldsSchema).validator(),
+  run(<%=name%>) {
+    return <%=Name%>.update({_id: <%=name%>._id}, { $set: <%=name%> });
+  },
+});
+
 export const delete<%=Name%> = new ValidatedMethod({
   name: '<%=name%>.delete',
   validate: validateId,
