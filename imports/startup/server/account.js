@@ -1,19 +1,10 @@
-ServiceConfiguration.configurations.remove({
-    service: "google"
-});
-
-ServiceConfiguration.configurations.insert({
-    service: "google",
-    clientId: Meteor.settings.private.accounts.google.clientId,
-    secret: Meteor.settings.private.accounts.google.secretId
-});
-
 Accounts.onCreateUser(function (options, user) {
     if(user.services.google){
-        user.username = user.services.google.name
+        user.username = user.services.google.email;
+        user.firstname = user.services.google.given_name;
+        user.lastname = user.services.google.family_name;
+        user.picture = user.services.google.picture;
 
     }
     return user;
 });
-
-
