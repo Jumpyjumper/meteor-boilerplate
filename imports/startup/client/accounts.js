@@ -1,14 +1,19 @@
-import {FlowRouter} from 'meteor/ostrio:flow-router-extra';
+import {FlowRouter} from 'meteor/kadira:flow-router';
 
-Accounts.onLogin(function() {
-    let redirect = Session.get('redirectAfterLogin');
-    if(redirect && redirect !== '/login'){
-        FlowRouter.go(redirect);
-    }else{
-        FlowRouter.go('/')
+Accounts.onLogin(function(){
+    if (Meteor.isClient) {
+        const route = FlowRouter.current().route.name,
+            didLoginOrSignup = route === "login" || route === "signup",
+            wasRedirected = Session.get("loginRedirect"),
+            requestedPage = Session.get("requestedPage");
+
+        if(wasRedirected && didLoginOrSignup){
+            FlowRouter.go(requestedPage)
+            Session.set("loginRedirect", false)
+        }
+
+        if(Meteor.userId() && didLoginOrSignup){
+            FlowRouter.go('homepage')
+        }
     }
-});
-
-Accounts.onLogout(function() {
-    FlowRouter.go('/login');
 });
