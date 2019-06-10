@@ -3,7 +3,7 @@ if(Meteor.isServer){
     //JsonRoutes.Middleware.use('/api', JsonRoutes.Middleware.parseBearerToken);
     //JsonRoutes.Middleware.use('/api', JsonRoutes.Middleware.validateUserToken);
 
-    let ApiV1 = new Restivus({
+    const ApiV1 = new Restivus({
         apiPath: 'api/',
         version: 'v1',
         prettyJson: true,
@@ -28,6 +28,7 @@ if(Meteor.isServer){
         definitions: {
         }
     }
+
     ApiV1.addSwagger('swagger.json');
 
     export {
