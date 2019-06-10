@@ -1,15 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Breadcrumbs from '/imports/ui/components/breadcrumbs/breadcrumbs.jsx';
+import HeaderPrimary from '/imports/ui/components/header-primary/header-primary.jsx';
+import MenuPrimary from '/imports/ui/components/menu-primary/menu-primary.jsx';
 import MDWebsite from '/imports/ui/components/microdata/website.jsx';
 
 const MainLayout = ({content}) => (
-    <div>
+    <div className="main-layout">
         <MDWebsite/>
-        <header>
-        This is our header
-        </header>
-        <Breadcrumbs breadcrumbs={Breadcrumb.getAll()} />
+        <HeaderPrimary/>
+        {
+            (!Meteor.isCordova) ?
+                <MenuPrimary/>
+                :   null
+
+        }
         <main>
             {content()}
         </main>

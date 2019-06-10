@@ -1,0 +1,15 @@
+.menu-primary{
+	background-color: #32383E;
+	height: 100%;
+	top: 0;
+	width: 200px;
+	position: fixed;
+	left: 0;
+	padding-top: 15px;
+
+
+
+    @include media-breakpoint-only(xs) { 
+		display: none;
+    }
+}

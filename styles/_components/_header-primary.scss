@@ -1,0 +1,22 @@
+.header-primary{
+	position: fixed;
+	top: 0;
+	left: 200px;
+	right: 0;
+	width: calc(100% - 200px);
+	background-color: map-get($theme-colors, "primary");
+	padding-top: 10px;
+	padding-bottom: 7px;
+
+	height: 66px;
+
+    @include media-breakpoint-only(xs) { 
+		height: 46px;
+		width: 100%;
+		left: 0;
+    }
+
+	a{
+		color: #ffffff;
+	}
+}

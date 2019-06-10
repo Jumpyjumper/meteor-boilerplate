@@ -4,3 +4,4 @@ settings-production.json*
 .coverage/
 package-lock.json*
 npm-debug.log*
+packages/

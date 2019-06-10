@@ -1,0 +1,14 @@
+.menu-primary-nav{
+	padding: 15px 0;
+	font-size: 0.9rem;
+	&-item{
+
+	}
+	&-link{
+		padding: 0;
+		color: #ffffff;
+		&:hover{
+			color: map-get($theme-colors, "primary");
+		}
+	}
+}

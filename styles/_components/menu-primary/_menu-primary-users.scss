@@ -1,0 +1,17 @@
+.menu-primary-users{
+	padding: 15px 0;
+	font-size: 0.75rem;
+	&-picture{
+		width: 23px;
+		height: 23px;
+		border-radius: 20px;
+		border: 2px solid #ffffff;
+	}
+	&-link{
+		padding: 0;
+		color: #ffffff;
+		&:hover{
+			color: map-get($theme-colors, "primary");
+		}
+	}
+}

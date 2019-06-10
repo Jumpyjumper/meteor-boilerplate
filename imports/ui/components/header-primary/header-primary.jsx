@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {H1} from '../headings/headings.jsx';
+import LogoutButton from '/imports/ui/components/logout-button.jsx';
 
 class HeaderPrimary extends React.Component {
     constructor(props) {
@@ -9,8 +9,8 @@ class HeaderPrimary extends React.Component {
 
     render() {
         return (
-            <header>
-                <H1 property={"schema:headline"}>{this.props.title}</H1>
+            <header className="header-primary">
+                <LogoutButton/>
             </header>
         );
     }
