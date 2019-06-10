@@ -22,7 +22,11 @@
     "moment": true,
     "Accounts": true,
     "ServiceConfiguration": true,
-    "Session": true
+    "Session": true,
+    "UserPresence": true,
+    "UserPresenceMonitor": true,
+    "Tracker": true,
+    "FlowRouter": true
   },
   "plugins": [
       "meteor",
