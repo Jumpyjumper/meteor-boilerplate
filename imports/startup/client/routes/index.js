@@ -1,30 +1,19 @@
-import {FlowRouter} from 'meteor/ostrio:flow-router-extra';
-import {FlowRouterMeta, FlowRouterTitle} from 'meteor/ostrio:flow-router-meta';
-import './public.jsx';
+import {FlowRouter} from 'meteor/kadira:flow-router';
+import './public';
+import './private';
 
 
-function isNotLoggedIn(context, redirect) {
-    if (!Meteor.user() && !Meteor.loggingIn()) {
-        redirect('/login');
+
+FlowRouter.triggers.enter([() => BodyClass.run()]);
+FlowRouter.triggers.exit([() => BodyClass.cleanup()]);
+
+
+FlowRouter.route('/logout', {
+    name: 'logout',
+    title: 'Logout',
+    action: function() {
+        Meteor.logout(function(){
+            FlowRouter.go('homepage')
+        });
     }
-}
-
-function isLoggedIn(context, redirect) {
-    if (Meteor.user() || Meteor.loggingIn()) {
-        redirect('/');
-    }
-}
-
-
-FlowRouter.triggers.enter([isNotLoggedIn], {
-    except: ['login']
-});
-
-
-FlowRouter.triggers.enter([isLoggedIn], {
-    only: ['login']
-});
-
-(() => new FlowRouterMeta(FlowRouter))();
-(() => new FlowRouterTitle(FlowRouter))();
-
+})

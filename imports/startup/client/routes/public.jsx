@@ -1,38 +1,37 @@
-import {FlowRouter} from 'meteor/ostrio:flow-router-extra';
+import {FlowRouter} from 'meteor/kadira:flow-router';
 import {mount} from 'react-mounter';
-import {MainLayout} from '/imports/ui/layouts/mainlayout.jsx';
 import {LoginLayout} from '/imports/ui/layouts/loginlayout.jsx';
-import Homepage from '/imports/ui/pages/homepage.jsx';
-import Styleguide from '/imports/ui/pages/styleguide.jsx';
+import {MainLayout} from '/imports/ui/layouts/mainlayout.jsx';
 import Login from '/imports/ui/pages/login.jsx';
+import Styleguide from '/imports/ui/pages/styleguide.jsx';
 import React from 'react';
 
-FlowRouter.route('/', {
-    name: 'homepage',
-    title: 'Homepage',
-    action() {
-        mount(MainLayout, {
-            content: () => <Homepage />,
-        });
-    },
+const publicRoutes = FlowRouter.group({
+    name: 'public',
+    triggersEnter: [function(){
+        const notSignedIn = Meteor.userId() === null
+        if (!notSignedIn) {
+            FlowRouter.go('homepage');
+        }
+    }]
 });
 
-FlowRouter.route('/styleguide', {
-    name: 'styleguide',
-    title: 'Styleguide',
-    action() {
-        mount(MainLayout, {
-            content: () => <Styleguide />,
-        });
-    },
-});
-
-FlowRouter.route('/login', {
+publicRoutes.route('/login', {
     name: 'login',
     title: 'Login',
     action() {
         mount(LoginLayout, {
-            content: () => <Login />,
-        });
+            content: () => <Login />
+        })
+    }
+});
+
+publicRoutes.route('/styleguide', {
+    name: 'styleguide',
+    title: 'Styleguide',
+    action() {
+        mount(MainLayout, {
+            content: () => <Styleguide />
+        })
     }
 });

@@ -1,0 +1,15 @@
+.btn{
+	&.btn-google{
+		background-image: url('./images/btn/btn-google-signin-dark-normal-web.png');
+		background-color: transparent;
+		width: 184px;
+	    height: 46px;
+	    background-size: contain;
+	    border: 1px solid #ffffff;
+		background-repeat: no-repeat;
+		color: transparent;	
+		&:hover{
+			background-image: url('./images/btn/btn-google-signin-dark-pressed-web.png');
+		}
+	}	
+}

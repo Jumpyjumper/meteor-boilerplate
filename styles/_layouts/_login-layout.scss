@@ -1,0 +1,5 @@
+body {
+	&.login{
+  		background-color: map-get($theme-colors, "primary");
+	}
+}

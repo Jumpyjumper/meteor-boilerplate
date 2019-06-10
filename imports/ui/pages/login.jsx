@@ -1,11 +1,28 @@
 import React from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faAndroid } from "@fortawesome/free-brands-svg-icons"
+
+
 
 class Login extends React.Component {
     constructor(props) {
         super(props);
         this.handleLoginWithGoogle = this.handleLoginWithGoogle.bind(this);
     }
+
+    componentDidMount(){
+
+        Tracker.autorun(() => {
+            if (!Meteor.userId()) { // if the user is not logged in (since userId() is reactive)
+                if (Session.get("loginRedirect")) { // if the user was logged in
+                    FlowRouter.go("/");
+                }
+            }
+        })
+
+    }
+
 
     handleLoginWithGoogle(event){
         event.preventDefault();
@@ -14,12 +31,11 @@ class Login extends React.Component {
             requestPermissions: ["email", "profile"],
             requestOfflineToken: true,
             forceApprovalPrompt: true,
-            loginStyle: "redirect"
-        }, function (err) {
+            loginStyle: "popup"
+        }, function(err){
             if(!err){
-                return;
+                FlowRouter.go('homepage');
             }
-            throw new Error(err);
         });
     }
     
@@ -30,8 +46,19 @@ class Login extends React.Component {
                     <div className="col-sm-6">
                         <form id="login" role="form" className="login-widget">
                             <article>
-                                <div>
-                                    <button className="btn btn-google" id="loginWithGoogle" onClick={this.handleLoginWithGoogle}>login</button>
+                                <div className="text-center">
+                                    <ul className="login-widget-services list-unstyled">
+                                        <li>
+                                            <button className="btn btn-google" id="loginWithGoogle" onClick={this.handleLoginWithGoogle}>login</button>
+                                        </li>
+                                    </ul>
+                                    {
+                                        (!Meteor.isCordova) ?
+                                            <a className="login-widget-download-mobile" href="https://s3-us-west-2.amazonaws.com/meteor-boilerplate-public/app-debug.apk">
+                                                <FontAwesomeIcon icon={faAndroid}/>
+                                            </a>
+                                            :   null
+                                    }
                                 </div>
                             </article>
                         </form>
