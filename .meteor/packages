@@ -55,4 +55,4 @@ momentjs:moment
 
 alanning:roles
 
-fmaronnaud:user-presence
+konecty:user-presence@=2.2.0

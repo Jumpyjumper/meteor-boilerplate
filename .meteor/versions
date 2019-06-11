@@ -36,7 +36,6 @@ ejson@1.1.0
 email@1.2.3
 es5-shim@4.8.0
 fetch@0.1.0
-fmaronnaud:user-presence@2.3.0
 fourseven:scss@4.10.0
 geojson-utils@1.0.10
 google-oauth@1.2.6
@@ -49,6 +48,7 @@ inter-process-messaging@0.1.0
 johanbrook:publication-collector@1.1.0
 jquery@1.11.11
 kadira:flow-router@2.12.1
+konecty:user-presence@2.2.0
 launch-screen@1.1.1
 livedata@1.0.18
 lmieulet:meteor-coverage@1.1.4
@@ -74,6 +74,7 @@ mongo-dev-server@1.1.0
 mongo-id@1.0.7
 mrest:restivus@0.8.13
 mrest:restivus-swagger@0.2.5
+nooitaf:colors@1.1.2_1
 npm-bcrypt@0.9.3
 npm-mongo@3.1.2-beta181.18
 oauth@1.2.7
