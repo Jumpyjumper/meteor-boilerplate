@@ -3,7 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import Foo from './collection';
 import { chai } from 'meteor/practicalmeteor:chai';
 import { resetDatabase } from 'meteor/xolvio:cleaner';
-import { upsertFoo, deleteFoo } from './methods';
+import { upsertFoo, deleteFoo, updateFoo } from './methods';
 import { createStubs, restoreStubs } from '/imports/api/stubs.test.js'
 
 describe('Foo methods', function () {
@@ -32,6 +32,18 @@ describe('Foo methods', function () {
     const { _id } = Factory.create('foo');
 
     upsertFoo.call({
+      _id,
+      foo: 'You can\'t arrest me, I\'m the Cake Boss!'
+    });
+
+    const getFoo = Foo.findOne(_id);
+    chai.assert.equal(getFoo.foo, 'You can\'t arrest me, I\'m the Cake Boss!');
+  });
+
+  it('updates a foo in the Foo collection', function () {
+    const { _id } = Factory.create('foo');
+
+    updateFoo.call({
       _id,
       foo: 'You can\'t arrest me, I\'m the Cake Boss!'
     });
