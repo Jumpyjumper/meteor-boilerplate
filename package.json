@@ -16,7 +16,9 @@
     "coverage:unit": "cross-env BABEL_ENV=COVERAGE TEST_BROWSER_DRIVER=puppeteer COVERAGE=1 COVERAGE_OUT_HTML=1 COVERAGE_APP_FOLDER=%cd%\\ meteor test --once --driver-package meteortesting:mocha --raw-logs",
     "coverage:watch": "cross-env BABEL_ENV=COVERAGE COVERAGE=1 COVERAGE_VERBOSE=1 COVERAGE_APP_FOLDER=%cd%\\ TEST_WATCH=1 meteor test --driver-package cultofcoders:mocha --raw-logs",
     "coverage:coverall": "cross-env cat \".coverage/lcov.info\" | \"./node_modules/coveralls/bin/coveralls.js\" || true",
-    "coverage:unit:full": "npm run-script coverage:unit && npm run-script coverage:coverall"
+    "coverage:unit:full": "npm run-script coverage:unit && npm run-script coverage:coverall",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "pre-commit": [
     "lint:javascript:fix"
@@ -40,7 +42,8 @@
     "react-mounter": "^1.2.0",
     "react-router": "^3.2.1",
     "react-transition-group": "^2.9.0",
-    "simpl-schema": "^1.5.3"
+    "simpl-schema": "^1.5.3",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "@meteorjs/eslint-config-meteor": "^1.0.5",
@@ -74,5 +77,6 @@
         ]
       }
     }
-  }
+  },
+  "snyk": true
 }
