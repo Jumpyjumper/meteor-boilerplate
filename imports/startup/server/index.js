@@ -1,8 +1,9 @@
-
 import './beanstalk-fix';
-import '../../api/';
+import './redis-cache';
 import './head';
 import './service-configuration';
 import './user-status';
 import './account';
-//import './favicons.js';
+import './apollo';
+
+import '/imports/api';
