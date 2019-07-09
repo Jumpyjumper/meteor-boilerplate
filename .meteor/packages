@@ -56,3 +56,6 @@ momentjs:moment
 alanning:roles
 
 konecty:user-presence@=2.2.0
+
+apollo@3.0.1
+swydo:graphql
