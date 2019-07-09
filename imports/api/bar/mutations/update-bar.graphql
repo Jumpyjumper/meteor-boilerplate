@@ -1,0 +1,6 @@
+mutation updateBar($id: ID!, $bar: String!) {
+  updateBar(id: $id, bar: $bar) {
+    id
+    bar
+  }
+}

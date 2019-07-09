@@ -1,18 +1,13 @@
----
-to: imports/api/<%= name %>/resolvers/mutations.js
----
-<%
- Name = h.capitalize(name)
-%>
+
 import { pubsub } from '/imports/api/graphql-subscriptions.js';
 import { redisClient } from '/imports/api/redis-cache';
-import { <%=Name%> } from '/imports/api/<%=name%>/collection.js';
+import { Bar } from '/imports/api/bar/collection.js';
 
-const name = <%=Name%>.getTableName();
+const name = Bar.getTableName();
 
 export const Mutation = {
-    insert<%=Name%>(obj, args) {
-        <%=Name%>.create(args).then(function(data){
+    insertBar(obj, args) {
+        Bar.create(args).then(function(data){
             if(data && data.dataValues){
                 const cacheKey = `${name}:id:${data.dataValues.id}`;
                 redisClient.set(cacheKey, JSON.stringify(data.dataValues));
@@ -21,17 +16,17 @@ export const Mutation = {
 
         return args;
     },
-    update<%=Name%>(obj, args) {
-		<%=Name%>.update({
-            <%=name%>: args.<%=name%>
+    updateBar(obj, args) {
+        Bar.update({
+            bar: args.bar
         }, {
             where: {
                 id: args.id
             }
         });
 
-        pubsub.publish("<%=name%>Updated", {
-            <%=name%>Updated: args
+        pubsub.publish("barUpdated", {
+            barUpdated: args
         });
 
         return args;

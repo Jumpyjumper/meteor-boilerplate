@@ -1,5 +1,5 @@
 ---
-to: imports/api/<%= name %>/schema.js
+to: imports/api/<%= name %>/schema.graphql
 ---
 <%
  Name = h.capitalize(name)
@@ -16,6 +16,7 @@ type Query {
 
 type Mutation {
   update<%=Name%>(id: ID!, <%=name%>: String!): <%=Name%>
+  insert<%=Name%>(<%=name%>: String!): <%=Name%>
 }
 
 type Subscription {

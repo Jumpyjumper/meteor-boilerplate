@@ -1,0 +1,26 @@
+
+type Bar {
+  id: ID
+  bar: String
+}
+
+type Query {
+  bar(id: ID!): Bar
+  bars(id: [ID]): [Bar]
+}
+
+type Mutation {
+  updateBar(id: ID!, bar: String!): Bar
+  insertBar(bar: String!): Bar
+}
+
+type Subscription {
+	barUpdated(id: ID!): Bar
+  barsUpdated(id: [ID]): [Bar]
+}
+
+schema {
+	query: Query
+	mutation: Mutation
+	subscription: Subscription
+}

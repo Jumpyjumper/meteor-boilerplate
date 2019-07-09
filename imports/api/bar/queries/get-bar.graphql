@@ -1,0 +1,6 @@
+query bar($id: ID!) {
+  bar(id: $id) {
+    id
+    bar
+  }
+}

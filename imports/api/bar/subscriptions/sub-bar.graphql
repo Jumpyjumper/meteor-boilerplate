@@ -1,0 +1,6 @@
+subscription barUpdated($id: ID!) {
+  barUpdated(id: $id) {
+    id
+    bar
+  }
+}
