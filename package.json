@@ -30,7 +30,7 @@
     "apollo-client": "^2.6.3",
     "apollo-link-http": "^1.5.15",
     "apollo-link-ws": "^1.0.18",
-    "apollo-server-express": "^2.6.3",
+    "apollo-server-express": "^3.0.0",
     "bluebird": "^3.5.5",
     "favicons": "^5.3.0",
     "graphql": "^14.3.1",
@@ -51,7 +51,7 @@
     "react-router": "^3.2.1",
     "react-transition-group": "^2.9.0",
     "redis": "^2.8.0",
-    "sequelize": "^5.8.10",
+    "sequelize": "^6.19.1",
     "sequelize-redis": "^1.0.12",
     "simpl-schema": "^1.5.3"
   },
