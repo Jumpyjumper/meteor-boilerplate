@@ -51,7 +51,7 @@
     "react-router": "^3.2.1",
     "react-transition-group": "^2.9.0",
     "redis": "^2.8.0",
-    "sequelize": "^5.8.10",
+    "sequelize": "^6.29.0",
     "sequelize-redis": "^1.0.12",
     "simpl-schema": "^1.5.3"
   },
